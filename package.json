@@ -1,22 +1,24 @@
 {
-    "name": "transfrio-api",
-    "version": "0.0.1",
-    "description": "handfull endpoints",
-    "main": "main.js",
-    "scripts": {
-      "start": "node main.js"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/davidovichmarcos/transfrio-api.git"
-    },
-    "author": "AS",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/davidovichmarcos/transfrio-api/issues"
-    },
-    "homepage": "https://github.com/davidovichmarcos/transfrio-api#readme",
-    "dependencies": {
-      "express": "^4.16.4"
-    }
+  "name": "transfrio-api",
+  "version": "0.0.1",
+  "description": "handfull endpoints",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidovichmarcos/transfrio-api.git"
+  },
+  "author": "AS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidovichmarcos/transfrio-api/issues"
+  },
+  "homepage": "https://github.com/davidovichmarcos/transfrio-api#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "firebase": "^7.5.2",
+    "firebase-admin": "^8.8.0"
   }
+}
