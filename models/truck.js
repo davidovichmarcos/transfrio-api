@@ -1,5 +1,5 @@
 module.exports = {
-    id: 0,
+    truckId: 0,
     driverId: 0,
     licensePlate: '',
     model: '',

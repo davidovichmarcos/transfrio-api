@@ -1,5 +1,5 @@
-export default {
-    id: 0,
+module.exports = {
+    driverId: 0,
     name: '',
     lastName: '',
     document: 0,
