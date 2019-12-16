@@ -36,6 +36,23 @@ app.post('/drivers', (req, res) => {
   res.status(200).send('driver added!');
 });
 
+app.get('/drivers', (req, res) => {
+  const timestamp = Date.now();
+  getData(drivers);
+  res.status(200).send(`Data sent to FireBase correctly at ${timestamp}`);
+})
+app.get('/trucks', (req, res) => {
+  const timestamp = Date.now();
+  getData(trucks);
+  res.status(200).send(`Data sent to FireBase correctly at ${timestamp}`);
+})
+
+function getData(val) {
+  return firebase.database.ref(`/${val}`).once('value').then(function(snapshot) {
+    return snapshot.val();
+  })
+}
+
 function writeTruckData(truck) {
   const timestamp = Date.now();
   firebase.database().ref('trucks/' + truck.truckId).set({
