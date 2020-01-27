@@ -1,9 +1,8 @@
-const truck = require('./models/truck');
 var bodyParser = require('body-parser')
 
 var express = require('express'),
   app = express(),
-  port = parseInt(process.env.PORT, 10) || 3000;
+  port = parseInt(process.env.PORT, 10) || 2345;
 var firebase = require("firebase/app");
 require('firebase/auth');
 require('firebase/database');
@@ -15,7 +14,20 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
 
+  // authorized headers for preflight requests
+  // https://developer.mozilla.org/en-US/docs/Glossary/preflight_request
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+
+  app.options('*', (req, res) => {
+      // allowed XHR methods  
+      res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
+      res.send();
+  });
+});
 // parse application/json
 app.use(bodyParser.json())
 
@@ -26,25 +38,29 @@ app.get('/', (req, res) => {
   res.status(200).send('Welcome to a transfrio api');
 });
 
-app.post('/trucks', (req, res) => {
+app.post('/createTruck', (req, res) => {
   writeTruckData(req.body);
-  res.status(200).send('truck added!');
+  res.status(201).send('truck added!');
 });
 
-app.post('/drivers', (req, res) => {
+app.post('/createDriver', (req, res) => {
   writeDriverData(req.body);
-  res.status(200).send('driver added!');
+  res.status(201).send('driver added!');
 });
+app.post('/createUser', (req, res) => {
+  writeUserData(req.body);
+  res.status(201).send('user added!')
+})
 
 app.get('/drivers', (req, res) => {
   const timestamp = Date.now();
   getData(drivers);
-  res.status(200).send(`Data sent to FireBase correctly at ${timestamp}`);
+  res.status(200).send(`Data recibed correctly from FireBase at ${timestamp}`);
 })
 app.get('/trucks', (req, res) => {
   const timestamp = Date.now();
   getData(trucks);
-  res.status(200).send(`Data sent to FireBase correctly at ${timestamp}`);
+  res.status(200).send(`Data recibed correctly from FireBase at ${timestamp}`);
 })
 
 function getData(val) {
@@ -75,4 +91,13 @@ function writeDriverData(driver) {
   });
 
   console.log(`Data sent to FireBase correctly at ${timestamp}`);
+}
+function writeUserData(user) {
+  const timestamp = Date.now();
+  firebase.database().ref('users/' + user.id).set({
+    username: user.name,
+    email: user.email,
+  });
+  console.log(`Data sent to FireBase correctly at ${timestamp}`);
+  
 }
