@@ -63,6 +63,11 @@ app.get('/trucks', (req, res) => {
   res.status(200).send(`Data recibed correctly from FireBase at ${timestamp}`);
 })
 
+app.get('/users', (req, res) => {
+  const timestamp = Date.now();
+  getData(users);
+  res.status(200).send(`Data recibed correctly from FireBase at ${timestamp}`);
+}) 
 function getData(val) {
   return firebase.database.ref(`/${val}`).once('value').then(function(snapshot) {
     return snapshot.val();
