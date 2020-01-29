@@ -4,7 +4,7 @@ const app = require('../main');
 chai.use(chaiHttp);
 chai.should();
 
-describe("Health", () => {
+describe("Health:", () => {
     describe("GET /", () => {
         it("should get 200 ok response", (done) => {
             chai.request(app)
