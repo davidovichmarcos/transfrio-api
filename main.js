@@ -26,10 +26,9 @@ app.use((req, res, next) => {
     res.send();
   });
 });
-// parse application/json
 app.use(bodyParser.json())
 
-app.listen(port, () => console.log(`Listening on port: ${port}`));
+module.exports = app.listen(port, () => console.log(`Listening on port: ${port}`));
 
 app.get('/', (req, res) => {
   res.status(200).send('Welcome to a transfrio api');
@@ -79,3 +78,4 @@ app.get('/getTruckById/:id', async (req, res) => {
   const truck = await baseService.getData('trucks/' + req.params.id);
   res.status(200).send(truck);
 })
+
