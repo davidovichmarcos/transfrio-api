@@ -29,7 +29,7 @@ describe("Trucks: ", () => {
     });
     describe("POST /", () => {
         it("should create a truck", (done) => {
-            const truck = { id: "AutomationTest", brand: "Suzuki", licensePlate: "ABC123", model:"Grand Vitara", year:"1999" }
+            const truck = { truckId: "AutomationTest", brand: "Suzuki", licensePlate: "ABC123", model:"Grand Vitara", year:"1999" }
             chai.request(app)
                 .post('/createTruck')
                 .send(truck)

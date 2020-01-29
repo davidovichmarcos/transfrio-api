@@ -29,7 +29,7 @@ describe("Driver: ", () => {
     });
     describe("POST /", () => {
         it("should create a driver", (done) => {
-            const driver = { id: "AutomationTest", name: "name", lastName: "lastName", document: "123456", address: "Fake addres 12" }
+            const driver = { driverId: "AutomationTest", name: "name", lastName: "lastName", document: "123456", address: "Fake addres 12" }
             chai.request(app)
                 .post('/createDriver')
                 .send(driver)
