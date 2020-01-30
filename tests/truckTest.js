@@ -11,6 +11,7 @@ describe("Trucks: ", () => {
                 .get('/getTrucks')
                 .end((err, res) => {
                     res.should.have.status(200);
+                    res.text.should.match(/([{\w":.,@}])+/g)
                     done();
                 });
         });

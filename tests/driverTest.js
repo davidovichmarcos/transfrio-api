@@ -11,7 +11,7 @@ describe("Driver: ", () => {
                 .get('/getDrivers')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    //res.text.should.be.equal('Welcome to a transfrio api')
+                    res.text.should.match(/([{\w":.,@}])+/g)
                     done();
                 });
         });
