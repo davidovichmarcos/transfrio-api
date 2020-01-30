@@ -11,17 +11,19 @@ describe("Trucks: ", () => {
                 .get('/getTrucks')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    //res.text.should.be.equal('Welcome to a transfrio api')
                     done();
                 });
         });
         
         it("should get a truck", (done) => {
             chai.request(app)
-                .get('/getTruckById/:id')
+                .get('/getTruckById/AutomationTest')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    //res.text.should.be.equal('Welcome to a transfrio api')
+                    res.text.should.includes("brand")
+                    res.text.should.includes("licensePlate")
+                    res.text.should.includes("model")                    
+                    res.text.should.includes("year")                    
                     done();
                 });
         });

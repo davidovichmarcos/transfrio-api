@@ -18,10 +18,13 @@ describe("Driver: ", () => {
         
         it("should get a driver", (done) => {
             chai.request(app)
-                .get('/getDriverById/:id')
+                .get('/getDriverById/AutomationTest')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    //res.text.should.be.equal('Welcome to a transfrio api')
+                    res.text.should.includes("name")  
+                    res.text.should.includes("lastName")  
+                    res.text.should.includes("document")  
+                    res.text.should.includes("address")  
                     done();
                 });
         });

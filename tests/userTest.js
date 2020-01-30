@@ -18,10 +18,11 @@ describe("Users: ", () => {
         
         it("should get a user", (done) => {
             chai.request(app)
-                .get('/getUserById/:id')
+                .get('/getUserById/AutomationTest')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    //res.text.should.be.equal('Welcome to a transfrio api')
+                    res.text.should.includes("name")  
+                    res.text.should.includes("email")  
                     done();
                 });
         });
