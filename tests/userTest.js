@@ -21,7 +21,7 @@ describe("Users: ", () => {
                 .get('/getUserById/AutomationTest')
                 .end((err, res) => {
                     res.should.have.status(200);
-                    res.text.should.includes("name")  
+                    res.text.should.includes("username")  
                     res.text.should.includes("email")  
                     done();
                 });

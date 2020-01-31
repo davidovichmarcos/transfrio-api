@@ -1,3 +1,4 @@
+var log = require('loglevel');
 var firebase = require("firebase/app");
 require('firebase/auth');
 require('firebase/database');
@@ -10,7 +11,7 @@ const writeDriverData = function (driver) {
         document: driver.document,
         address: driver.address
     });
-    console.log(`Data sent to FireBase correctly at ${timestamp}`);
+    log.info(`Data sent to FireBase correctly at ${timestamp}`);
 }
 
 module.exports = {

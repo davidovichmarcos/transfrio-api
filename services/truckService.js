@@ -1,3 +1,4 @@
+var log = require('loglevel');
 var firebase = require("firebase/app");
 require('firebase/auth');
 require('firebase/database');
@@ -10,7 +11,7 @@ const writeTruckData = function (truck) {
         brand: truck.brand,
         year: truck.year
     });
-    console.log(`Data sent to FireBase correctly at ${timestamp}`);
+    log.info(`Data sent to FireBase correctly at ${timestamp}`);
 }
 
 module.exports = {
