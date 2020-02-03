@@ -9,7 +9,8 @@ const writeDriverData = function (driver) {
         name: driver.name,
         lastName: driver.lastName,
         document: driver.document,
-        address: driver.address
+        address: driver.address,
+        phone: driver.phone
     });
     log.info(`Data sent to FireBase correctly at ${timestamp}`);
 }
