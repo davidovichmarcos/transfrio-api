@@ -79,3 +79,9 @@ app.get('/getTruckById/:id', async (req, res) => {
   res.status(200).send(truck);
 })
 
+app.post('/logUser/:id', async (req, res) => {
+  const user = await baseService.getData('users/' + req.params.id);
+  res.status(200).send(user);
+});
+
+
