@@ -5,7 +5,7 @@ require('firebase/database');
 
 const writeDriverData = function (driver) {
     const timestamp = Date.now();
-    firebase.database().ref('drivers/' + driver.driverId).set({
+    firebase.database().ref('drivers/').push({
         name: driver.name,
         lastName: driver.lastName,
         document: driver.document,

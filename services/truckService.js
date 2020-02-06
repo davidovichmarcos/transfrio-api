@@ -5,7 +5,7 @@ require('firebase/database');
 
 const writeTruckData = function (truck) {
     const timestamp = Date.now();
-    firebase.database().ref('trucks/' + truck.truckId).set({
+    firebase.database().ref('trucks/').push({
         licensePlate: truck.licensePlate,
         model: truck.model,
         brand: truck.brand,

@@ -5,7 +5,7 @@ require('firebase/database');
 
 const writeUserData = function (user) {
     const timestamp = Date.now();
-    firebase.database().ref('users/' + user.id).set({
+    firebase.database().ref('users/').push({
         username: user.name,
         email: user.email,
     });
