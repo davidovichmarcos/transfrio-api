@@ -18,7 +18,7 @@ describe("Driver: ", () => {
         
         it("should get a driver", (done) => {
             chai.request(app)
-                .get('/getDriverById/AutomationTest')
+                .get('/getDriverById/-M-Qzy8qLVwxMx6xMY62')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.text.should.includes("name")  
@@ -32,7 +32,7 @@ describe("Driver: ", () => {
     });
     describe("POST /", () => {
         it("should create a driver", (done) => {
-            const driver = { driverId: "AutomationTest", name: "name", lastName: "lastName", document: "123456", address: "Fake addres 12" }
+            const driver = { name: "name", lastName: "lastName", document: "123456", address: "Fake addres 12", phone: "1234567" }
             chai.request(app)
                 .post('/createDriver')
                 .send(driver)

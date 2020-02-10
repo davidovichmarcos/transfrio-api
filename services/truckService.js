@@ -10,7 +10,7 @@ const writeTruckData = function (truck) {
         model: truck.model,
         brand: truck.brand,
         year: truck.year,
-        driverId: truck.driverId
+        driverDocument: truck.driverDocument
     });
     log.info(`Data sent to FireBase correctly at ${timestamp}`);
 }

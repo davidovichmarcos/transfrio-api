@@ -18,7 +18,7 @@ describe("Users: ", () => {
         
         it("should get a user", (done) => {
             chai.request(app)
-                .get('/getUserById/AutomationTest')
+                .get('/getUserById/-M-j81ojzvtUFRgtIH5d')
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.text.should.includes("username")  
@@ -30,7 +30,7 @@ describe("Users: ", () => {
     });
     describe("POST /", () => {
         it("should create a user", (done) => {
-            const user = { id: "AutomationTest", name: "testAut", email: "test@aut.com" }
+            const user = { name: "testAut", email: "test@aut.com" }
             chai.request(app)
                 .post('/createUser')
                 .send(user)
